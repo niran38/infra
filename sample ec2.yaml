@@ -1,0 +1,15 @@
+---
+Resources:
+  MyFirstInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      AvailabilityZone: eu-west-1b
+      ImageId: ami-0ef0975ebdd78b77b
+      InstanceType: t2.micro
+      
+      
+      
+      
+      
+      
+      
