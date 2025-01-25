@@ -1,11 +1,31 @@
 ---
 Resources:
-  MyFirstInstance:
-    Type: AWS::EC2::Instance
-    Properties:
-      AvailabilityZone: eu-west-1b
-      ImageId: ami-0ef0975ebdd78b77b
-      InstanceType: t2.micro
+ MyThirdInstance:
+   Type: AWS::EC2::Instance
+   DeletionPolicy: Snapshot
+   Properties:
+     AvailabilityZone: eu-west-1b
+     ImageId: ami-0ef0975ebdd78b77b
+     InstanceType: t2.micro
+     SecurityGroups:
+        - !Ref InstanceSecurityGroup
+        
+    #EC2 security Group     
+ InstanceSecurityGroup:
+   Type: AWS::EC2::SecurityGroup
+   Properties:
+    GroupDescription: Enable ssh access
+    SecurityGroupIngress:
+     - IpProtocol: tcp
+       FromPort: 22
+       ToPort: 22
+       CidrIp: 0.0.0.0/0
+
+ MyElasticIp:
+   Type: AWS::EC2::EIP
+   DeletionPolicy: Retain
+   Properties:
+    InstanceId: !Ref MyThirdInstance
       
       
       
