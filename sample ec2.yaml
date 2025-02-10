@@ -5,7 +5,7 @@ Resources:
    DeletionPolicy: Snapshot
    Properties:
      AvailabilityZone: eu-west-1b
-     ImageId: ami-0ef0975ebdd78b77b
+     ImageId: ami-087a0156cb826e921
      InstanceType: t2.micro
      SecurityGroups:
         - !Ref InstanceSecurityGroup
